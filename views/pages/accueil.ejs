@@ -9,6 +9,47 @@
 </head>
 <body>
     <h1>Cameroon Tech Developpers </h1>
-    
+    <div class="cardlist">
+
+        <div class="ui link cards">
+        <%data.forEach(function(speaker){%>
+
+              <div class="card">
+
+                <div class="image">
+                <img src='assets/images/speaker-14918.jpg'>
+                </div>
+                <div class="content">
+                <div class="header"><%=speaker.first%></div>
+                <div class="meta">
+                    <a><%=speaker.last%></a>
+                </div>
+                <div class="description">
+                    <%=speaker.bio%>
+                </div>
+                </div>
+                <div class="extra content">
+                <span class="right floated">
+                    <%=speaker.compagny%>
+                </span>
+                <span>
+                    <i class="user icon"></i>
+                    <%=speaker.twitterHandle%>
+                </span>
+                </div>
+  </div>
+        <% });%>
+
+    </div>
+    </div>
+
+
+
+<style>
+
+    .cardlist{
+        margin-left: 300px;
+    }
+</style>
 </body>
 </html>

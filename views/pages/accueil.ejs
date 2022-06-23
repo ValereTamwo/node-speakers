@@ -17,12 +17,13 @@
               <div class="card">
 
                 <div class="image">
-                <img src='assets/images/speaker-14918.jpg'>
+                <!-- <img src="assets/images/speaker-.jpg"> -->
+                <img src="<%=`assets/images/speaker-${speaker.id}.jpg`%>">
                 </div>
                 <div class="content">
                 <div class="header"><%=speaker.first%></div>
                 <div class="meta">
-                    <a><%=speaker.last%></a>
+                    <a href="<%=`/${speaker.id}`%>"><%=speaker.last%></a>
                 </div>
                 <div class="description">
                     <%=speaker.bio%>

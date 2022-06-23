@@ -10,20 +10,32 @@ const axios = require('axios');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
+
     const speaker = async () => {
         return await axios.get('http://localhost:3001/speakers');
     }
 
-
     const speakers = async () => {
         const data = await speaker()
-        console.log(data.data);
+       // console.log(data.data);
         res.render('pages/accueil.ejs', { data:data.data});
     }
+
     speakers()
 
     })
+app.get('/:speakerId', (req, res) => {
+    const speaker = async () => {
+        return await axios.get(`http://localhost:3001/speakers/${req.params.speakerId}`);
+    }
+    const details = async () => {
+        const data = await speaker();
+        console.log(data.data);
+        res.render('pages/details.ejs');
+    }
 
+    details();
+})
 app.use('/assets', express.static('public'));
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

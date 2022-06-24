@@ -12,7 +12,12 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
 
     const speaker = async () => {
-        return await axios.get('http://localhost:3001/speakers');
+        try {
+            return await axios.get('http://localhost:3001/speakers');
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const speakers = async () => {
@@ -26,12 +31,16 @@ app.get('/', (req, res) => {
     })
 app.get('/:speakerId', (req, res) => {
     const speaker = async () => {
-        return await axios.get(`http://localhost:3001/speakers/${req.params.speakerId}`);
+        try {
+            return await axios.get(`http://localhost:3001/speakers/${req.params.speakerId}`);
+        } catch(err) {
+            console.log(err);
+        }
     }
     const details = async () => {
         const data = await speaker();
         console.log(data.data);
-        res.render('pages/details.ejs');
+        res.render('pages/details.ejs',{data:data.data});
     }
 
     details();

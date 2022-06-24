@@ -8,7 +8,59 @@
     <link rel="stylesheet" href="assets/semantic/semantic.min.css">
 </head>
 <body>
-    <CEnter><h1>Speaker Details</h1></CEnter>
+    <CEnter><h1>Speaker Details</h1></CEnter><br>
 
+    <div class="ui centered container"
+        <%=data.first%>
+        <div class="ui centered card">
+            <div class="image">
+                <img src="<%=`assets/images/speaker-${data.id}.jpg`%>">
+            </div>
+            <div class="content">
+                <h3 class="header"><%=data.first%> <%=data.last%></h3>
+            </div>
+        </div>
+
+        <div class="ui cards ">
+            <div class="card " id="left">
+                <div class="content">
+                <div class="header"><%=data.first%> </div>
+                <div class="meta"><%=data.last%></div>
+                <div class="description">
+                    <%=data.bio%>
+                </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="content">
+                <div class="header">Tech Sessions Events </div>
+                <div class="meta"><%=data.sessions[0].eventYear%></div>
+                <div class="description">
+                    <%=data.sessions[0].title%>
+                </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="content">
+                <div class="header"><%=data.company%></div>
+                <div class="meta"><%=data.twitterHandle%></div>
+                <div class="description">
+                    <%=data.id%>
+                </div>
+                </div>
+            </div>
+            </div>
+    </div>
+
+    <style>
+        img{
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+        }
+        #left{
+            margin-left: 200px;
+        }
+    </style>
 </body>
 </html>
